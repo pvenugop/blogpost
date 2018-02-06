@@ -1,0 +1,1 @@
+# Blogpost manager application
