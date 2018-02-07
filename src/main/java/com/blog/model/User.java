@@ -1,31 +1,14 @@
-package com.blog.entity;
+package com.blog.model;
 
-import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "USER")
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="USER_ID")
+public class User {
     private Integer id;
-
-    @Column(name="USER_NAME")
     private String userName;
-
-    @Column(name="USER_PASSWD")
     private String password;
-
-    @Column(name="IS_ADMIN")
-    private boolean isAdmin;
-
-    @Column(name="USER_STATUS")
     private String status;
-
-    @OneToMany
-    @JoinColumn(name="BLOG_ID")
-    private List<BlogEntity> blogs;
+    private boolean isAdmin;
+    private List<Blog> blogs;
 
     public Integer getId() {
         return id;
@@ -51,14 +34,6 @@ public class UserEntity {
         this.password = password;
     }
 
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -67,11 +42,19 @@ public class UserEntity {
         this.status = status;
     }
 
-    public List<BlogEntity> getBlogs() {
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public List<Blog> getBlogs() {
         return blogs;
     }
 
-    public void setBlogs(List<BlogEntity> blogs) {
+    public void setBlogs(List<Blog> blogs) {
         this.blogs = blogs;
     }
 }
